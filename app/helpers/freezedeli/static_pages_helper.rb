@@ -1,0 +1,2 @@
+module Freezedeli::StaticPagesHelper
+end
