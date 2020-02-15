@@ -1,1 +1,45 @@
-<h1>FreezeDeli</h1>
+<div class="container">
+  <header>
+    <div class="row">
+      <div class="col-sm-9">
+        <h1>FreezeDeli</h1>
+      </div>
+      <div class = "col-sm-3 aboutus">
+        <%= link_to freezedeli_about_path  do %>
+          <span>FreezeDeli</span>とは？
+        <% end %>
+      </div>
+    </div>
+  </header>
+</div>
+<hr>
+<div class="container">
+  <section class="top-wrapper">
+    <h1>冷凍食品なのに美味しい？</h1>
+    <h1>冷凍食品だから美味しい！！</h1>
+  </section>
+</div>
+<hr>
+<div class="container">
+  <div class = "row">
+    <div class="col-xs-12">
+      <h4>おすすめ商品</h4>
+    </div>
+  </div>
+  <% @products.each do |product| %>
+  <div class="col-md-3 col-sm-6 col-xs-12">
+    <div class="productBox">
+      <div class="productImage">
+        <%= image_tag product.display_image.attachment(:product), :alt => "products-image" %>
+      </div>
+      <div class="productCaption">
+        <h4><%= product.name %></h4>
+        <h4><%= product.display_price %></h4>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+<footer>
+  <h4>&copy; FreezeDeli</h4>
+</footer>
