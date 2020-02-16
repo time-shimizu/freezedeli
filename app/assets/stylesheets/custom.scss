@@ -4,6 +4,9 @@ hr {
   border-width: 3px ;
   border-color: #F2F2F2 ;
 }
+.logo{
+  color: black ;
+}
 header h1{
   font-family: 'Lobster', cursive;
   font-size: 50px ;
@@ -35,4 +38,25 @@ footer h4{
   padding: 30px 20px;
   margin-top: 30px ;
   text-align: right ;
+}
+.freeze-image{
+  height: 400px ;
+  width: 100% ;
+  object-fit: cover;
+  margin-top: 30px;
+}
+.copy{
+  text-align: center;
+}
+.discription{
+  text-align: center;
+}
+.declartion{
+  margin-top: 50px;
+}
+.para-1{
+  margin-top: 50px;
+}
+.para-2{
+  margin-top: 50px ;
 }
