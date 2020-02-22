@@ -1,0 +1,17 @@
+<% provide(:title, @product.name) %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="product-show-img">
+        <%= image_tag @product.display_image.attachment(:product), alt: "product-image" %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="show-description">
+        <h2><%= @product.name %></h2>
+        <h3><%= @product.display_price %></h3>
+        <p><%= @product.description %></p>
+      </div>
+    </div>
+  </div>
+</div>
