@@ -1,0 +1,47 @@
+<% provide(:title, @taxon.name) %>
+<div class="container">
+  <div clas="row">
+    <div class="col-md-3 col-sm-4 col-xs-12 sideBar">
+        <div class="panel panel-default">
+          <div class="panel-heading">商品カテゴリー</div>
+          <div class="panel-body">
+            <ul class="nav  side-nav">
+              <% @taxonomies.each do |taxonomy| %>
+              <li>
+                  <%= taxonomy.name %>
+                <ul>
+                  <% taxonomy.taxons.leaves.each do |taxon| %>
+                    <li>
+                      <%= link_to freezedeli_category_path(taxon.id) do %>
+                        <%= taxon.name %>
+                      <% end %>
+                    </li>
+                  <% end %>
+                </ul>
+              </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+    </div>
+    <div class="col-md-9 col-sm-8 col-xs-12">
+      <div class="row">
+        <% @products.each do |product| %>
+          <div class="col-sm-4 col-xs-12">
+            <div class="productBox">
+              <%= link_to freezedeli_product_path(product.id) do%>
+                <div class="productImage">
+                  <%= image_tag product.display_image.attachment(:product), :alt => "product-image" %>
+                </div>
+                <div class="productCaption">
+                  <h5><%= product.name %></h5>
+                  <h3><%= product.display_price %></h3>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

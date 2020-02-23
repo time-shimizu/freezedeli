@@ -5,9 +5,14 @@
         <h1><%= link_to "FreezeDeli", freezedeli_index_path, class: "logo" %></h1>
       </div>
       <div class = "col-sm-3 aboutus">
-        <%= link_to freezedeli_about_path  do %>
-          <span>FreezeDeli</span>とは？
-        <% end %>
+        <ul>
+          <li>
+            <%= link_to freezedeli_about_path  do %>
+              <span>FreezeDeli</span>とは？
+            <% end %>
+          </li>
+          <li><%= link_to "商品一覧", freezedeli_category_path(12)%></li>
+        </ul>
       </div>
     </div>
   </header>
