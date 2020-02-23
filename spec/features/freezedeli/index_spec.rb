@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 RSpec.feature "index", type: :feature do
-  let!(:product) { create(:product) }
+  let!(:taxon)   { create(:taxon, name: "弁当") }
+  let!(:product) { create(:product, taxons: [taxon]) }
 
   before do
     visit freezedeli_index_path
@@ -17,5 +18,10 @@ RSpec.feature "index", type: :feature do
     expect(page).to have_content product.name
     expect(page).to have_content product.display_price
     expect(page).to have_content product.description
+  end
+
+  scenario 'freezedeliとは？を押した時、aboutページに飛ぶ' do
+    click_link 'FreezeDeliとは？'
+    expect(current_path).to eq freezedeli_about_path
   end
 end
