@@ -1,0 +1,2 @@
+module Freezedeli::LineItemsHelper
+end

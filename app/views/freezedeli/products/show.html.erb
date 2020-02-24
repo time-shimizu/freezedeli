@@ -12,6 +12,24 @@
         <h2><%= @product.name %></h2>
         <h3><%= @product.display_price %></h3>
         <p><%= @product.description %></p>
+        <%= form_for :order, url: freezedeli_line_items_path do |f| %>
+          <% if @product.variants.any? %>
+            <span class='quick-drop'>
+              <%= select_tag :variant_id, options_from_collection_for_select(@product.varients, :id, :options_text), class: "select-drop" %>
+            </span>
+          <% else %>
+            <%= hidden_field_tag "variant_id", @product.master.id %>
+          <% end %>
+          <span class="quick-drop resizeWidth">
+            <%= select_tag :quantity, options_for_select([*1..5]), class: "select-drop" %>
+          </span>
+          <div class="btn-area">
+            <%= button_tag(type: 'submit', class: 'btn btn-primary ') do %>
+              カートに入れる<i class="fa fa-angle-right" aria-hidden="true"></i>
+            <% end %>
+          </div>
+        <% end %>
+
       </div>
     </div>
   </div>

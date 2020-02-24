@@ -1,0 +1,16 @@
+<%= order_form.fields_for :line_items, line_item do |line_item_fields| %>
+  <tr>
+    <td class="col-xs-2">
+      <%= link_to freezedeli_line_item_path(line_item), class: "close", method: :delete do %>
+        <span aria-hidden="true">&times;</span>
+      <% end %>
+      <span class="cartImage">
+        <%= image_tag(line_item.variant.display_image.attachment(:small)) %>
+      </span>
+    </td>
+    <td class="col-xs-4"><%= line_item.name %></td>
+    <td class="col-xs-2"><%= line_item.display_price %></td>
+    <td class="col-xs-2"><%= line_item_fields.number_field :quantity, min: 0 %></td>
+    <td class="col-xs-2"><%= line_item.display_total %></td>
+  </tr>
+<% end %>

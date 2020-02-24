@@ -1,0 +1,31 @@
+<%= form_for order, url: freezedeli_cart_path do |order_form| %>
+  <%= hidden_field_tag(:number, order.number) %>
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>商品名</th>
+          <th>価格</th>
+          <th>数</th>
+          <th>小計</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render partial: 'line_item', collection: order_form.object.line_items, locals: { order_form: order_form } %>
+      </tbody>
+    </table>
+  </div>
+  <div class="totalAmountArea">
+    <div class="col-sm-4 col-sm-offset-8 col-xs-12">
+      <ul class="list-unstyled">
+        <li>小計 <span><%= order.display_item_total %></span></li>
+        <li>消費税 <span><%= order.display_additional_tax_total %></span></li>
+        <li>総計 <span class="grandTotal"><%= order.display_total %></span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="checkBtnArea ">
+    <a href="#" class="btn btn-primary ">購入する</a>
+  </div>
+<% end %>
