@@ -69,7 +69,7 @@ group :test do
 end
 
 group :production do
-  gem 'mysql2', '~> 0.5.2'
+  gem 'pg'
 end
 
 
